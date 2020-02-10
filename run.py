@@ -9,7 +9,7 @@ an instance of MT_spider.
 from spider_develop import MeituanSpider
 
 
-# save_mode ：txt存储为txt文件，csv存储为csv文件，db存储在mysql数据库中，无输入默认为txt
+# save_mode 
 
 # spider = MeituanSpider(save_mode='txt')
 spider = MeituanSpider(save_mode='csv')
