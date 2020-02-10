@@ -27,10 +27,10 @@ class MT_spider:
     tableName = tableName
 
 
-    #美团深圳地区美食爬虫
+  
     def __init__(self,saveMode = 'txt'):
         if saveMode not in self.modeList:
-            raise RuntimeError('存储模式指定有误，请输入txt、csv或者mysql')
+            raise RuntimeError('Error，Please enter txt、csv or mysql')
         self.saveMode = saveMode
 
         if self.saveMode == 'mysql':
@@ -125,35 +125,35 @@ class MT_spider:
 
         itemlist = []
         for info in info_list:
-            # 店铺名称
+          
             name = info['poi']['name']
-            # 所属片区
+            
             areaName = info['poi']['areaName']
-            # 详细地址
+           
             addr = info['poi']['addr']
-            # 纬度
+           
             lat = info['poi']['lat']
-            # 经度
+            
             lng = info['poi']['lng']
-            # 餐厅类别
+           
             cateName = info['poi']['cateName']
-            # 优惠套餐情况
+          
             abstracts = ''
             for abstract in info['poi']['payAbstracts']:
                 # abstracts.append(abstract['abstract'])
                 abstracts = abstracts + abstract['abstract'] + ';'
 
-            # 评分
+          
             avgScore = info['poi']['avgScore']
-            # 营业时间
+           
             openInfo = info['poi']['openInfo'].replace('\n',' ')
-            # 联系电话
+          
             phone = info['poi']['phone']
-            # 累计售出份数
+            
             historyCouponCount = info['poi']['historyCouponCount']
-            # 餐厅简介
+          
             introduction = info['poi']['introduction']
-            # 特色菜
+            
             featureMenus = info['poi']['featureMenus']
             item = {
                 '店铺名称': name,
@@ -172,7 +172,6 @@ class MT_spider:
             }
 
             itemlist.append(item)
-        # 返回当前页面item列表
         return itemlist
 
     def __del__(self):
